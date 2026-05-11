@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LobsterLog — Built by a 4th generation fisherman for every fisherman being dragged into the digital age. Daily catch logging, historical intelligence, Navionics sea floor maps, and DFO elog submission. One screen in your pocket.">
+<title>LobsterLog — One Screen in Your Pocket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #2A9D8F;
+    --teal-dark: #1e7a6e;
+    --teal-deeper: #155f56;
+    --navy: #1E3A8A;
+    --navy-dark: #152c6b;
+    --navy-deeper: #0d1f4a;
+    --white: #ffffff;
+    --off-white: #f4f1eb;
+    --warm-gray: #e8e4da;
+    --text-dark: #0f1923;
+    --text-mid: #3a4a5c;
+    --text-muted: #6b7a8d;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--off-white);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(30, 58, 138, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0 1.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(42, 157, 143, 0.3);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span { color: var(--teal); }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5rem;
+    overflow: hidden;
+    margin-top: 0;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 25, 35, 0.2) 0%,
+      rgba(15, 25, 35, 0.3) 40%,
+      rgba(15, 25, 35, 0.85) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 1.5rem;
+    max-width: 720px;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .btn-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .btn-store:active { transform: scale(0.97); }
+
+  .btn-appstore {
+    background: var(--white);
+    color: var(--navy-dark);
+    border: 2px solid var(--white);
+  }
+
+  .btn-appstore:hover { background: #e8f0ff; }
+
+  .btn-playstore {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+
+  .btn-playstore:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+  .btn-store svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .btn-store-text small {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    opacity: 0.75;
+    text-transform: uppercase;
+  }
+
+  /* SECTION BASE */
+  section { padding: 5rem 1.5rem; }
+
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1.15;
+    color: var(--navy-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 580px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* FEATURES */
+  #features { background: var(--white); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  @media (min-width: 640px) {
+    .features-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .feature-card {
+    padding: 2rem;
+    border: 1px solid #e2ddd4;
+    margin: -1px 0 0 -1px;
+    position: relative;
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #e6f4f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--teal-dark);
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .feature-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 0.6rem;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .feature-card.highlight {
+    background: var(--navy-dark);
+  }
+
+  .feature-card.highlight .feature-icon {
+    background: rgba(42,157,143,0.2);
+  }
+
+  .feature-card.highlight .feature-icon svg {
+    stroke: var(--teal);
+  }
+
+  .feature-card.highlight h3 { color: var(--white); }
+  .feature-card.highlight p { color: rgba(255,255,255,0.72); }
+
+  /* STORY */
+  #story { background: var(--navy-deeper); color: var(--white); }
+
+  #story .section-label { color: var(--teal); }
+  #story .section-title { color: var(--white); }
+  #story .section-intro { color: rgba(255,255,255,0.72); max-width: 100%; }
+
+  .story-body {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 700px) {
+    .story-body { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  }
+
+  .story-block p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.78);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .story-block p strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .story-pull {
+    border-left: 3px solid var(--teal);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .story-pull blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* DFO */
+  #dfo { background: #eef7f6; }
+
+  .dfo-inner {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 700px) {
+    .dfo-inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  .dfo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #d1ede9;
+    color: var(--teal-deeper);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .dfo-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: block;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .dfo-points {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .dfo-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #c8e8e4;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    font-weight: 300;
+  }
+
+  .dfo-points li:last-child { border-bottom: none; }
+
+  .dfo-points li::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.05em;
+  }
+
+  .dfo-visual {
+    background: var(--navy-dark);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .dfo-visual p {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+  }
+
+  .dfo-visual strong {
+    display: block;
+    font-family: var(--font-body);
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 900;
+    font-style: normal;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  /* PHOTO STORY */
+  #photos { background: var(--text-dark); }
+  #photos .section-label { color: var(--teal); }
+  #photos .section-title { color: var(--white); }
+
+  .photo-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 500px) {
+    .photo-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 800px) {
+    .photo-grid {
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto;
+    }
+    .photo-item:first-child { grid-row: span 2; }
+  }
+
+  .photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 4/3;
+  }
+
+  .photo-item:first-child {
+    aspect-ratio: 3/4;
+  }
+
+  @media (min-width: 800px) {
+    .photo-item { aspect-ratio: auto; min-height: 260px; }
+    .photo-item:first-child { min-height: 540px; }
+  }
+
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .photo-item:hover img { transform: scale(1.03); }
+
+  .photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+    color: var(--white);
+  }
+
+  .photo-caption p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    font-weight: 300;
+  }
+
+  .photo-caption strong {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* DOWNLOAD */
+  #download {
+    background: var(--teal);
+    text-align: center;
+    padding: 5rem 1.5rem;
+  }
+
+  #download .section-label { color: rgba(255,255,255,0.6); }
+
+  #download .section-title {
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  #download p {
+    color: rgba(255,255,255,0.82);
+    font-size: 1.05rem;
+    font-weight: 300;
+    max-width: 460px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  #download .btn-group { justify-content: center; }
+
+  #download .btn-appstore {
+    background: var(--white);
+    color: var(--teal-deeper);
+    border-color: var(--white);
+  }
+
+  #download .btn-playstore {
+    border-color: rgba(255,255,255,0.7);
+    color: var(--white);
+  }
+
+  #download .btn-playstore:hover { background: rgba(255,255,255,0.12); }
+
+  /* PRESS */
+  #press { background: var(--off-white); }
+
+  .press-card {
+    background: var(--white);
+    border: 1px solid #ddd8cd;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 580px;
+  }
+
+  .press-card p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .press-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--teal-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--teal);
+    padding-bottom: 0.1rem;
+    transition: color 0.2s;
+  }
+
+  .press-card a:hover { color: var(--navy-dark); }
+
+  /* CONTACT */
+  #contact { background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 600px) {
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .contact-item label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .contact-item a, .contact-item span {
+    font-size: 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .contact-item a { color: var(--teal-dark); }
+  .contact-item a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deeper);
+    color: rgba(255,255,255,0.5);
+    padding: 2.5rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--teal); }
+
+  .footer-copy {
+    width: 100%;
+    font-size: 0.78rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* DIVIDER */
+  .teal-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* SCROLL ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>Lobster</span>Log</a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#dfo">DFO</a></li>
+    <li><a href="#download">Download</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="hero.jpg" alt="Nice & Easy, the Nickerson family fishing vessel, underway on the Atlantic">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">LFA 34 · Cape Sable Island, Nova Scotia</p>
+    <h1>One screen<br>in your pocket.<br><em>Better than ten<br>on your dash.</em></h1>
+    <p class="hero-sub">Built by a 4th generation fisherman — for every fisherman being dragged into the digital age, whether they like it or not.</p>
+    <div class="btn-group">
+      <a href="https://apps.apple.com/ca/app/lobster-log/id6757337342" class="btn-store btn-appstore" aria-label="Download on the App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span class="btn-store-text">
+          <small>Download on the</small>
+          App Store
+        </span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.lobsterlog&pcampaignid=web_share" class="btn-store btn-playstore" aria-label="Get it on Google Play">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.24.99.2L15.55 12 12 8.45zM20.54 10.23l-2.89-1.65-3.99 3.99 3.99 3.99 2.9-1.66c.83-.47.83-1.67-.01-2.67zM3.17.24C2.87.05 2.52-.02 2.17.01L13.45 12 2.17 23.99c.35.03.7-.04 1-.23l12.16-6.94-2.67-2.67-9.49-13.91zM16.65 2.11L4.5.45l9.49 9.49z"/></svg>
+        <span class="btn-store-text">
+          <small>Get it on</small>
+          Google Play
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-label">What it does</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">Every tool you need.<br>One place. Thirty seconds.</h2>
+      <p class="section-intro">The government mandated digital reporting. The apps they handed you were built by people who've never set a trap. LobsterLog is different.</p>
+    </div>
+    <div class="features-grid fade-up">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+        </div>
+        <h3>Daily Catch Log</h3>
+        <p>Pounds caught, price per lb, water temp, wind, conditions, notes. Thirty seconds. Every detail logged before you're back at the wharf.</p>
+      </div>
+
+      <div class="feature-card highlight">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3>Historical Intelligence</h3>
+        <p>This day last year. Two years ago. Three. Water was two degrees colder — they were over along the ridge. Years of knowledge, finally searchable.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        </div>
+        <h3>Navionics Sea Floor Maps</h3>
+        <p>Garmin's sea floor mapping data built right in. Plan your sets from the coffee shop, the truck at the wharf — no boat running, no plotter needed.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3>DFO Elog Submission</h3>
+        <p>Government-approved reporting built into the same app. One tool. Not two, not three. One. Log your catch and file your report without switching apps.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-label">The story behind it</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">Built from the inside out.</h2>
+    </div>
+    <div class="story-pull fade-up">
+      <blockquote>"Nobody else grew up on this water. Nobody else sat in that wheelhouse, ran those trawls, and then went home and learned to code because the industry needed someone to."</blockquote>
+    </div>
+    <div class="story-body fade-up">
+      <div class="story-block">
+        <p>Jonathon Nickerson is a <strong>4th generation commercial fisherman</strong> from Cape Sable Island, Nova Scotia — LFA 34. He fishes alongside his father the same way his grandfather did, and his great-grandfather before that.</p>
+        <p>He's also a <strong>licensed electrician</strong>. He understands how systems work, how circuits fail, and how to solve problems that nobody else has bothered to solve properly.</p>
+        <p>When the federal government mandated digital catch reporting for every licensed lobster fisherman in Canada, the apps they handed fishermen were clunky, confusing, and built by people who had <strong>never set a trap in their life</strong>.</p>
+      </div>
+      <div class="story-block">
+        <p>Jonathon sat in meetings with DFO to understand exactly what needed to be reported — then fought to strip the experience down to its simplest possible form.</p>
+        <p>He met with his local MP, <strong>Jessica Fancy</strong>, to advocate for fishermen navigating the transition. He reached out to Garmin to integrate Navionics sea floor mapping. He built LobsterLog not as a startup founder chasing a market — but as a <strong>fisherman who knew exactly what was missing</strong>.</p>
+        <p>A 65-year-old captain with 40 years on the water shouldn't have to fight with technology to do what the government now requires. LobsterLog makes sure he doesn't have to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DFO -->
+<section id="dfo">
+  <div class="container">
+    <div class="dfo-inner">
+      <div class="fade-up">
+        <div class="dfo-badge">DFO Elog Approval In Progress</div>
+        <p class="section-label">Government Compliance</p>
+        <div class="teal-rule"></div>
+        <h2 class="section-title">One tool.<br>Fully compliant.</h2>
+        <p class="section-intro" style="margin-bottom: 1.5rem;">LobsterLog is working through the DFO approval process to become an officially recognized elog provider for Canadian harvesters — built with fishermen in mind from day one.</p>
+        <ul class="dfo-points">
+          <li>Built on DFO's own requirements, stripped to the essentials</li>
+          <li>Designed for the fisherman who's never filed digitally before</li>
+          <li>One app for logging and compliance — not two separate tools</li>
+          <li>Developed in consultation with actual harvesters in Atlantic Canada</li>
+        </ul>
+      </div>
+      <div class="dfo-visual fade-up">
+        <strong>One Screen.<br>Every Report.</strong>
+        <p>"The apps they handed us were built by people who've never been on the water. We built ours the other way around."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STORY -->
+<section id="photos">
+  <div class="container">
+    <div class="fade-up" style="margin-bottom: 2.5rem;">
+      <p class="section-label">Four generations</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">The water runs in the family.</h2>
+    </div>
+    <div class="photo-grid fade-up">
+
+      <div class="photo-item">
+        <img src="hero.jpg" alt="Nice & Easy underway on the Atlantic">
+        <div class="photo-caption">
+          <strong>Nice &amp; Easy</strong>
+          <p>The Nickerson family vessel — still running the same grounds, every season.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <img src="sunrise.jpg" alt="Sunrise from the stern of the fishing vessel">
+        <div class="photo-caption">
+          <strong>First light</strong>
+          <p>The day starts before most people are awake. Always has.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <img src="lobster.jpg" alt="A full haul of live lobster on deck">
+        <div class="photo-caption">
+          <strong>A good haul</strong>
+          <p>Lbs. Price. Temp. Conditions. Logged in the time it takes to bait the next trap.</p>
+        </div>
+      </div>
+
+      <div class="photo-item">
+        <img src="shed.jpg" alt="Four generations — Jonathon's father showing his infant son rope and trap gear in the fishing shed">
+        <div class="photo-caption">
+          <strong>Four generations</strong>
+          <p>The same shed. The same gear. The same knowledge, passed down by hand.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-label">Available now</p>
+      <h2 class="section-title" style="margin-bottom: 1rem;">One screen.<br>Every pocket.<br>Every boat.</h2>
+      <p>Free to download. Pro features available for the fisherman who wants everything. iPhone and Android.</p>
+      <div class="btn-group">
+        <a href="https://apps.apple.com/ca/app/lobster-log/id6757337342" class="btn-store btn-appstore" aria-label="Download LobsterLog on the App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span class="btn-store-text">
+            <small>Download on the</small>
+            App Store
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.lobsterlog&pcampaignid=web_share" class="btn-store btn-playstore" aria-label="Get LobsterLog on Google Play">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.24.99.2L15.55 12 12 8.45zM20.54 10.23l-2.89-1.65-3.99 3.99 3.99 3.99 2.9-1.66c.83-.47.83-1.67-.01-2.67zM3.17.24C2.87.05 2.52-.02 2.17.01L13.45 12 2.17 23.99c.35.03.7-.04 1-.23l12.16-6.94-2.67-2.67-9.49-13.91zM16.65 2.11L4.5.45l9.49 9.49z"/></svg>
+          <span class="btn-store-text">
+            <small>Get it on</small>
+            Google Play
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section id="press">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-label">Press &amp; Media</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">Media inquiries</h2>
+      <div class="press-card">
+        <p>LobsterLog is available for press coverage, podcast appearances, and interviews. Jonathon is available to speak about the digital transition in Atlantic Canadian fisheries, the DFO elog mandate, and what it means to build technology for an industry you were born into.</p>
+        <a href="mailto:lobsterlog.app@gmail.com">lobsterlog.app@gmail.com ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-label">Contact</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title" style="margin-bottom: 2rem;">Get in touch</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <label>Email</label>
+          <a href="mailto:lobsterlog.app@gmail.com">lobsterlog.app@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <label>Location</label>
+          <span>Cape Sable Island, Nova Scotia</span>
+        </div>
+        <div class="contact-item">
+          <label>App Store</label>
+          <a href="https://apps.apple.com/ca/app/lobster-log/id6757337342">LobsterLog on iOS</a>
+        </div>
+        <div class="contact-item">
+          <label>Google Play</label>
+          <a href="https://play.google.com/store/apps/details?id=com.lobsterlog&pcampaignid=web_share">LobsterLog on Android</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo"><span>Lobster</span>Log</span>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="https://apps.apple.com/ca/app/lobster-log/id6757337342">App Store</a></li>
+      <li><a href="https://play.google.com/store/apps/details?id=com.lobsterlog&pcampaignid=web_share">Google Play</a></li>
+      <li><a href="mailto:lobsterlog.app@gmail.com">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 LobsterLog. Built in Cape Sable Island, Nova Scotia. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
