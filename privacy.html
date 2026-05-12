@@ -169,33 +169,25 @@
     flex-shrink: 0;
   }
 
-  .prose-section ul {
-    list-style: none;
+  .prose-section dl {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
-  .prose-section li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.75rem;
+  .prose-section dt {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.4;
+  }
+
+  .prose-section dd {
     font-size: 0.97rem;
     color: var(--text-mid);
     font-weight: 300;
-    line-height: 1.7;
-  }
-
-  .prose-section li::before {
-    content: '—';
-    color: var(--teal);
-    font-weight: 600;
-    margin-top: 0.05em;
-  }
-
-  .prose-section li strong {
-    color: var(--text-dark);
-    font-weight: 600;
+    line-height: 1.75;
+    margin-left: 0;
   }
 
   .prose-section p {
@@ -313,37 +305,70 @@
 
     <div class="prose-section">
       <h2>1. Information We Collect</h2>
-      <ul>
-        <li><strong>Account Information:</strong> To create an account and sync your data across devices, we collect your Email Address. This is used solely for authentication purposes to ensure only you can access your logbook.</li>
-        <li><strong>Logbook Data:</strong> We collect the data you voluntarily enter into the app, including catch weights (lbs), prices, weather conditions, boat/captain names, and personal notes.</li>
-        <li><strong>Subscription Data:</strong> We use RevenueCat to manage Pro subscriptions. RevenueCat may collect a unique, anonymous identifier from your device to manage your subscription status. No personal logbook data is shared with RevenueCat.</li>
-        <li><strong>Location Data:</strong> We do NOT collect, track, or store your device's precise GPS location. Your specific trap locations and fishing zones are not tracked by this application.</li>
-      </ul>
+      <dl>
+        <div>
+          <dt>Account Information:</dt>
+          <dd>To create an account and sync your data across devices, we collect your Email Address. This is used solely for authentication purposes to ensure only you can access your logbook.</dd>
+        </div>
+        <div>
+          <dt>Logbook Data:</dt>
+          <dd>We collect the data you voluntarily enter into the app, including catch weights (lbs), prices, weather conditions, boat/captain names, and personal notes.</dd>
+        </div>
+        <div>
+          <dt>Subscription Data:</dt>
+          <dd>We use RevenueCat to manage Pro subscriptions. RevenueCat may collect a unique, anonymous identifier from your device to manage your subscription status. No personal logbook data is shared with RevenueCat.</dd>
+        </div>
+        <div>
+          <dt>Location Data:</dt>
+          <dd>We do NOT collect, track, or store your device's precise GPS location. Your specific trap locations and fishing zones are not tracked by this application.</dd>
+        </div>
+      </dl>
     </div>
 
     <div class="prose-section">
       <h2>2. How We Use Your Information</h2>
-      <ul>
-        <li><strong>Service Delivery:</strong> To provide, maintain, and improve the LobsterLog application.</li>
-        <li><strong>Data Syncing:</strong> We store your data in the cloud (using Google Firebase) so you do not lose your catch history if your device is lost or damaged.</li>
-        <li><strong>Payment Processing:</strong> All in-app purchases and subscriptions are processed securely through the Apple App Store. LobsterLog does not collect or store your credit card or financial information.</li>
-      </ul>
+      <dl>
+        <div>
+          <dt>Service Delivery:</dt>
+          <dd>To provide, maintain, and improve the LobsterLog application.</dd>
+        </div>
+        <div>
+          <dt>Data Syncing:</dt>
+          <dd>We store your data in the cloud (using Google Firebase) so you do not lose your catch history if your device is lost or damaged.</dd>
+        </div>
+        <div>
+          <dt>Payment Processing:</dt>
+          <dd>All in-app purchases and subscriptions are processed securely through the Apple App Store. LobsterLog does not collect or store your credit card or financial information.</dd>
+        </div>
+      </dl>
     </div>
 
     <div class="prose-section">
       <h2>3. Third-Party Services</h2>
-      <ul>
-        <li><strong>Google Firebase:</strong> We use Firebase for authentication and as our primary database (Cloud Firestore).</li>
-        <li><strong>RevenueCat:</strong> We use RevenueCat to facilitate and validate in-app subscriptions.</li>
-      </ul>
+      <dl>
+        <div>
+          <dt>Google Firebase:</dt>
+          <dd>We use Firebase for authentication and as our primary database (Cloud Firestore).</dd>
+        </div>
+        <div>
+          <dt>RevenueCat:</dt>
+          <dd>We use RevenueCat to facilitate and validate in-app subscriptions.</dd>
+        </div>
+      </dl>
     </div>
 
     <div class="prose-section">
       <h2>4. Data Retention and Deletion</h2>
-      <ul>
-        <li><strong>Retention:</strong> We retain your information for as long as your account is active.</li>
-        <li><strong>Your Rights:</strong> You have the right to delete your account and all associated data at any time. You can do this within the app by navigating to <strong>Settings &gt; Delete Account</strong>. This action is permanent and removes all email and history from our servers immediately.</li>
-      </ul>
+      <dl>
+        <div>
+          <dt>Retention:</dt>
+          <dd>We retain your information for as long as your account is active.</dd>
+        </div>
+        <div>
+          <dt>Your Rights:</dt>
+          <dd>You have the right to delete your account and all associated data at any time. You can do this within the app by navigating to <strong>Settings &gt; Delete Account</strong>. This action is permanent and removes all email and history from our servers immediately.</dd>
+        </div>
+      </dl>
     </div>
 
     <div class="prose-section">
