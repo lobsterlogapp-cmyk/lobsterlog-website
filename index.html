@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LobsterLog — Built by a 4th generation fisherman for every fisherman being dragged into the digital age. Daily catch logging, historical intelligence, Navionics sea floor maps, and DFO elog submission. One screen in your pocket.">
+<meta name="description" content="LobsterLog — Built by a 4th generation fisherman for every fisherman being dragged into the digital age. Daily catch logging, historical intelligence, and Navionics sea floor maps. One screen in your pocket.">
 <title>LobsterLog — One Screen in Your Pocket</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -506,29 +506,54 @@
     margin-top: 0.05em;
   }
 
-  .dfo-visual {
-    background: var(--navy-dark);
+  .dfo-badge--pending {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .dfo-badge--pending::before {
+    background: #d97706;
+    animation: none;
+  }
+  .dfo-disclaimer-box {
+    background: #1a1a2e;
+    border: 1px solid #991b1b;
     border-radius: 16px;
     padding: 2rem;
-    text-align: center;
+    color: #fef2f2;
   }
-
-  .dfo-visual p {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-style: italic;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
+  .dfo-disclaimer-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(153,27,27,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #fca5a5;
   }
-
-  .dfo-visual strong {
+  .dfo-disclaimer-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+  .dfo-disclaimer-box strong {
     display: block;
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 900;
-    font-style: normal;
-    color: var(--white);
+    color: #fca5a5;
     margin-bottom: 0.75rem;
+  }
+  .dfo-disclaimer-box p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: rgba(254,242,242,0.85);
+    font-weight: 300;
+  }
+  .dfo-disclaimer-box em {
+    font-style: normal;
+    font-weight: 700;
+    color: #fca5a5;
   }
 
   /* PHOTO STORY */
@@ -770,6 +795,25 @@
     margin-bottom: 1.5rem;
   }
 
+  /* DISCLAIMER BANNER */
+  .disclaimer-banner {
+    background: #7c2d12;
+    color: #fef2f2;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    border-bottom: 2px solid #991b1b;
+    position: relative;
+    z-index: 200;
+  }
+  .disclaimer-banner strong {
+    color: #fca5a5;
+    font-weight: 700;
+  }
+
   /* SCROLL ANIMATION */
   .fade-up {
     opacity: 0;
@@ -784,6 +828,11 @@
 </style>
 </head>
 <body>
+
+<!-- DISCLAIMER BANNER -->
+<div class="disclaimer-banner" role="alert">
+  <strong>Important Notice:</strong> LobsterLog is not currently certified or approved by Fisheries and Oceans Canada (DFO) as an official ELOG provider. The DFO ELOG feature is under active development. It cannot be used to satisfy mandatory electronic logbook reporting requirements at this time. DFO approval is pending and is not guaranteed.
+</div>
 
 <!-- NAV -->
 <nav>
@@ -871,13 +920,6 @@
         <p>Garmin's sea floor mapping data built right in. Plan your sets from the coffee shop, the truck at the wharf — no boat running, no plotter needed.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <h3>DFO Elog Submission</h3>
-        <p>Government-approved reporting built into the same app. One tool. Not two, not three. One. Log your catch and file your report without switching apps.</p>
-      </div>
 
     </div>
   </div>
@@ -914,21 +956,25 @@
   <div class="container">
     <div class="dfo-inner">
       <div class="fade-up">
-        <div class="dfo-badge">DFO Elog Approval In Progress</div>
+        <div class="dfo-badge dfo-badge--pending">DFO Approval Pending</div>
         <p class="section-label">Government Compliance</p>
         <div class="teal-rule"></div>
-        <h2 class="section-title">One tool.<br>Fully compliant.</h2>
-        <p class="section-intro" style="margin-bottom: 1.5rem;">LobsterLog is working through the DFO approval process to become an officially recognized elog provider for Canadian harvesters — built with fishermen in mind from day one.</p>
+        <h2 class="section-title">Built for compliance.<br>Not certified yet.</h2>
+        <p class="section-intro" style="margin-bottom: 1.5rem;">LobsterLog has submitted a Letter of Interest to DFO and is actively pursuing qualification as an official ELOG provider. That process is ongoing and approval is not guaranteed.</p>
         <ul class="dfo-points">
-          <li>Built on DFO's own requirements, stripped to the essentials</li>
-          <li>Designed for the fisherman who's never filed digitally before</li>
-          <li>One app for logging and compliance — not two separate tools</li>
-          <li>Developed in consultation with actual harvesters in Atlantic Canada</li>
+          <li>Built on DFO's published ELOG requirements from the ground up</li>
+          <li>Designed by an active lobster harvester who fishes LFA 34</li>
+          <li>Developing in consultation with harvesters and industry associations</li>
+          <li>DFO certification required before use for mandatory reporting</li>
         </ul>
       </div>
-      <div class="dfo-visual fade-up">
-        <strong>One Screen.<br>Every Report.</strong>
-        <p>"The apps they handed us were built by people who've never been on the water. We built ours the other way around."</p>
+      <div class="dfo-disclaimer-box fade-up">
+        <div class="dfo-disclaimer-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <strong>Not yet DFO certified</strong>
+        <p>LobsterLog's ELOG feature <em>cannot</em> be used to fulfill mandatory DFO electronic logbook reporting requirements. Do not use it as your official submission until DFO certification is confirmed and announced.</p>
+        <p style="margin-top:0.75rem; font-size:0.82rem; opacity:0.75;">For current official ELOG requirements, contact DFO directly at <a href="https://www.dfo-mpo.gc.ca" style="color:inherit;">dfo-mpo.gc.ca</a>.</p>
       </div>
     </div>
   </div>
