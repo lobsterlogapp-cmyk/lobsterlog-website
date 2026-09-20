@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LobsterLog Privacy Policy — how we collect, use, and protect your data.">
+<meta name="description" content="LobsterLog Privacy Policy — English and French.">
 <title>Privacy Policy — LobsterLog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -275,6 +275,24 @@
 
   .prose-section p:last-child { margin-bottom: 0; }
 
+  /* The global reset zeroes padding on everything, which would push list bullets off
+     the left edge. This page is the first on the site to use a bulleted list, so the
+     rule lives here rather than in the shared prose styles. */
+  .prose-section ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-section li {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 0.6rem;
+  }
+
+
   .prose-section a {
     color: var(--teal-dark);
     text-decoration: none;
@@ -363,6 +381,7 @@
       <li><a href="dfo.html">DFO</a></li>
       <li class="nav-dropdown-divider" role="separator"></li>
       <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
     </ul>
   </div>
   <ul class="nav-links">
@@ -380,7 +399,7 @@
     <div class="prose-header-inner">
       <span class="prose-eyebrow">Legal</span>
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last Updated: February 6, 2026</p>
+      <p class="last-updated">Last Updated: September 20, 2026<br>This policy replaces the version dated August 28, 2026.</p>
     </div>
   </div>
 
@@ -388,85 +407,150 @@
   <div class="prose-body">
 
     <div class="prose-section prose-intro">
-      <p>LobsterLog ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your information is collected, used, and disclosed when you use the LobsterLog mobile application.</p>
+      <p>LobsterLog Software ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your information is collected, used and disclosed when you use the LobsterLog mobile application. <strong>By using LobsterLog, you agree to this Privacy Policy.</strong></p>
+      <p style="margin-top:1rem;"><strong>La version française suit.</strong> <a href="#fr">Aller à la version française</a></p>
     </div>
 
     <div class="prose-section">
       <h2>1. Information We Collect</h2>
-      <dl>
-        <div>
-          <dt>Account Information:</dt>
-          <dd>To create an account and sync your data across devices, we collect your Email Address. This is used solely for authentication purposes to ensure only you can access your logbook.</dd>
-        </div>
-        <div>
-          <dt>Logbook Data:</dt>
-          <dd>We collect the data you voluntarily enter into the app, including catch weights (lbs), prices, weather conditions, boat/captain names, and personal notes.</dd>
-        </div>
-        <div>
-          <dt>Subscription Data:</dt>
-          <dd>We use RevenueCat to manage Pro subscriptions. RevenueCat may collect a unique, anonymous identifier from your device to manage your subscription status. No personal logbook data is shared with RevenueCat.</dd>
-        </div>
-        <div>
-          <dt>Location Data:</dt>
-          <dd>We do NOT collect, track, or store your device's precise GPS location. Your specific trap locations and fishing zones are not tracked by this application.</dd>
-        </div>
-      </dl>
+      <p><strong>Account Information.</strong> To create an account and sync your data across devices, we collect your email address. This is used solely for authentication, to ensure only you can access your logbook.</p>
+      <p><strong>Logbook Data.</strong> We collect the data you enter into the app, including catch weights, prices, weather conditions, boat and captain names, and your personal notes.</p>
+      <p><strong>DFO Setup Details.</strong> If you use the DFO electronic logbook feature, we store the licence and vessel details you enter — your fishing licence number, your Fisher Identification Number (FIN), your vessel registration number and the operator's name — so they can be filled into your logbooks. See Section 3.</p>
+      <p><strong>Crew Information.</strong> If you save crew members in the app, we store the full name and fisher number you enter for each one. This information is used only to fill in your logbooks. If you turn on Cloud Backup, it is backed up to our servers along with your other logbook data. <strong>Crew names and fisher numbers are never transmitted to Fisheries and Oceans Canada — only the number of crew on board is reported.</strong></p>
+      <p><strong>Location Data.</strong> LobsterLog uses your device's location only for the features you choose to use.</p>
+      <ul>
+        <li><strong>Fishing Location and weather</strong> — you set a point, either by typing the coordinates or by using your current GPS position. Your weather and tide information is generated for that point.</li>
+        <li><strong>Chart and trawl pins (Pro)</strong> — you drop a pin where each trawl is. When you haul, you log the catch for that trawl. The app saves the trawl number, haul date and time, number of lobsters, soak time, bait and the pin's location in your Trawl Logbook, and uses your hauls to build your heat map. For Pro members these are saved on your phone and backed up automatically to your account, on servers located in <strong>Canada</strong>, so you don't lose them if your phone is lost or damaged. <strong>They are never sent to Fisheries and Oceans Canada, never sold, and never shared with anyone.</strong></li>
+        <li><strong>DFO electronic logbooks</strong> — where a fishing area or a report requires a position, you either capture it with the <strong>Capture GPS</strong> button or type the coordinates in yourself. <strong>These coordinates form part of the logbook you transmit to Fisheries and Oceans Canada, as required by the electronic logbook standard.</strong></li>
+      </ul>
+      <p>While the map is open, it shows your current position so you can see where you are and drop pins where your trawls are. <strong>LobsterLog does not record the path you travel and does not use location in the background.</strong> It saves a position only when you drop a pin, set a fishing point, or capture GPS for a DFO logbook.</p>
+      <p><strong>We never sell your location information, and we never use it for advertising or any other commercial purpose.</strong></p>
+      <p><strong>Subscription Data.</strong> We use RevenueCat to manage subscriptions. RevenueCat may collect a unique, anonymous identifier from your device to manage your subscription status. No personal logbook data is shared with RevenueCat.</p>
     </div>
 
     <div class="prose-section">
       <h2>2. How We Use Your Information</h2>
-      <dl>
-        <div>
-          <dt>Service Delivery:</dt>
-          <dd>To provide, maintain, and improve the LobsterLog application.</dd>
-        </div>
-        <div>
-          <dt>Data Syncing:</dt>
-          <dd>We store your data in the cloud (using Google Firebase) so you do not lose your catch history if your device is lost or damaged.</dd>
-        </div>
-        <div>
-          <dt>Payment Processing:</dt>
-          <dd>All in-app purchases and subscriptions are processed securely through the Apple App Store. LobsterLog does not collect or store your credit card or financial information.</dd>
-        </div>
-      </dl>
+      <p><strong>Service Delivery.</strong> To provide, maintain and improve the LobsterLog application.</p>
+      <p><strong>Data Syncing.</strong> We store your data in the cloud (using Google Firebase, on servers located in Canada) so you do not lose your catch history if your device is lost or damaged.</p>
+      <p><strong>Payment Processing.</strong> Subscriptions and in-app purchases are processed by the <strong>Apple App Store</strong> or <strong>Google Play</strong>, depending on where you downloaded the app. LobsterLog never sees or stores your credit card or financial information.</p>
     </div>
 
     <div class="prose-section">
-      <h2>3. Third-Party Services</h2>
-      <dl>
-        <div>
-          <dt>Google Firebase:</dt>
-          <dd>We use Firebase for authentication and as our primary database (Cloud Firestore).</dd>
-        </div>
-        <div>
-          <dt>RevenueCat:</dt>
-          <dd>We use RevenueCat to facilitate and validate in-app subscriptions.</dd>
-        </div>
-      </dl>
+      <h2>3. Fisheries and Oceans Canada (DFO) Electronic Logbooks</h2>
+      <p>This section applies <strong>only if you activate and use the DFO electronic logbook feature.</strong> If you use LobsterLog as a general fishing logbook, or for weather and charts, none of the following applies to you and nothing is sent to Fisheries and Oceans Canada.</p>
+      <p><strong>What is transmitted.</strong> When you submit a logbook or a report, the app sends it directly to Fisheries and Oceans Canada. Depending on the form and your fishing area, this includes your fishing licence number, your Fisher Identification Number (FIN), your vessel registration number, the operator's name, the number of crew on board, your fishing effort and catch details, bait and bycatch information, landing details, and — where the fishing area or the report requires it — position coordinates. <strong>Crew members' names are never transmitted; only the number of crew on board is reported.</strong></p>
+      <p><strong>Why.</strong> These submissions are required by Fisheries and Oceans Canada as a condition of your licence. LobsterLog transmits them on your behalf; we do not decide what is required.</p>
+      <p><strong>Records kept on your device.</strong> The app keeps a copy of every logbook you send, and a record of every transmission — successful or failed — including the file name, the date and time, and the response Fisheries and Oceans Canada returned. The electronic logbook standard requires these records to be retained for <strong>three years</strong>, and they may be inspected by a fishery officer. If you delete your account, the app gives you a copy of these records before removing them — see Section 5.</p>
+      <p><strong>What we cannot undo.</strong> Once a logbook has been transmitted, it is held by Fisheries and Oceans Canada under their own privacy and retention rules, not ours. <strong>Deleting your LobsterLog account does not and cannot remove data already submitted to Fisheries and Oceans Canada.</strong> Their handling of that information is governed by the federal Privacy Act.</p>
     </div>
 
     <div class="prose-section">
-      <h2>4. Data Retention and Deletion</h2>
-      <dl>
-        <div>
-          <dt>Retention:</dt>
-          <dd>We retain your information for as long as your account is active.</dd>
-        </div>
-        <div>
-          <dt>Your Rights:</dt>
-          <dd>You have the right to delete your account and all associated data at any time. You can do this within the app by navigating to <strong>Settings &gt; Delete Account</strong>. This action is permanent and removes all email and history from our servers immediately.</dd>
-        </div>
-      </dl>
+      <h2>4. Third-Party Services</h2>
+      <ul>
+        <li><strong>Google Firebase</strong> — authentication and our database. Your data is stored on servers located in <strong>Canada</strong>.</li>
+        <li><strong>RevenueCat</strong> — validates subscriptions. It receives an anonymous device identifier only. <strong>No logbook data is shared with RevenueCat.</strong></li>
+        <li><strong>Stormglass</strong> — supplies weather, tide and sea conditions. <strong>To do this, the coordinates of your fishing location are sent to Stormglass.</strong> No other information about you is sent, and Stormglass does not receive your name, your account, or your catch data.</li>
+        <li><strong>Mapbox</strong> — supplies the map used in the app. To do this, Mapbox receives your location and how you use the map.</li>
+        <li><strong>Garmin</strong> — supplies the sea-floor charts in Pro. Garmin receives an account number, which chart product you bought and a purchase number. Garmin does not receive your name or email. Downloaded charts are erased from your device when your Pro subscription ends.</li>
+      </ul>
+      <p>Apart from the services listed above and the transmission to Fisheries and Oceans Canada described in Section 3, we do not sell, rent or share your information with anyone.</p>
     </div>
 
     <div class="prose-section">
-      <h2>5. Terms of Use (EULA)</h2>
-      <p>By using LobsterLog, you also agree to the standard Apple Licensed Application End User License Agreement (EULA), which can be found here: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
+      <h2>5. Data Retention and Deletion</h2>
+      <p><strong>Retention.</strong> We keep your information for as long as your account is active.</p>
+      <p><strong>Deleting your account.</strong> You have the right to delete your account at any time from <strong>Settings › Delete Account</strong>. This is permanent and cannot be undone. It removes everything held under your account on our servers — your email address, your logbook entries, your catch history, your chart pins and your saved crew list. <strong>We do not keep a copy.</strong></p>
+      <p><strong>Before anything is deleted, the app saves you a copy of your transmission record</strong> — the reports you have sent, with Fisheries and Oceans Canada's confirmation for each — as a plain text file in LobsterLog's Documents folder on your phone. You are told the file name. Keep that file somewhere safe: the electronic logbook standard requires you to keep those records for three years, and a fishery officer may ask to see them. Once the deletion runs, the app no longer holds them.</p>
+      <p><strong>What deletion cannot reach.</strong></p>
+      <ul>
+        <li><strong>Anything already submitted to Fisheries and Oceans Canada.</strong> Once a logbook has been transmitted it belongs to the government's records and is governed by their rules, not ours. We have no way to withdraw it.</li>
+      </ul>
     </div>
 
     <div class="prose-section">
-      <h2>6. Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:lobsterlog.app@gmail.com">lobsterlog.app@gmail.com</a></p>
+      <h2>6. Terms of Use</h2>
+      <p>If you downloaded LobsterLog from the Apple App Store, your use is also subject to Apple's standard Licensed Application End User License Agreement: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
+      <p>Our Terms of Use, including the Garmin Charts (Pro) terms, are at <a href="terms.html">lobsterlog.ca/terms.html</a>.</p>
+    </div>
+
+    <div class="prose-section">
+      <h2>7. Contact Us</h2>
+      <p>Questions about this Privacy Policy:</p>
+      <p><strong>LobsterLog Software</strong><br>300 Highway 330, Northeast Point, Nova Scotia, Canada<br>PO Box 661 · B0W 2P0<br><a href="mailto:support@lobsterlog.com">support@lobsterlog.com</a> · 1 (902) 635-1069</p>
+    </div>
+
+    <div class="prose-section prose-intro" id="fr">
+      <h2>Politique de confidentialité (Français)</h2>
+      <p class="last-updated" style="color:var(--text-muted);">Dernière mise à jour: 20 septembre 2026<br>Cette politique remplace la version datée du 28 août 2026.</p>
+      <p>LobsterLog Software («nous», «notre» ou «nos») s’engage à protéger votre vie privée. La présente politique de confidentialité explique comment vos renseignements sont recueillis, utilisés et communiqués lorsque vous utilisez l’application mobile LobsterLog. <strong>En utilisant LobsterLog, vous acceptez la présente politique de confidentialité.</strong></p>
+    </div>
+
+    <div class="prose-section">
+      <h2>1. Renseignements que nous recueillons</h2>
+      <p><strong>Renseignements de compte.</strong> Pour créer un compte et synchroniser vos données entre appareils, nous recueillons votre adresse courriel. Elle sert uniquement à l’authentification, afin que vous seul puissiez accéder à votre journal.</p>
+      <p><strong>Données de journal.</strong> Nous recueillons les données que vous entrez dans l’application, notamment les poids de captures, les prix, les conditions météorologiques, les noms du navire et du capitaine, ainsi que vos notes personnelles.</p>
+      <p><strong>Détails de configuration MPO.</strong> Si vous utilisez la fonction de journal de bord électronique (JBE) du MPO, nous conservons les détails de permis et de navire que vous saisissez — votre numéro de permis de pêche, votre NIP de détenteur de permis, votre numéro d’enregistrement du bateau (NEB) et le nom de l’opérateur — afin qu’ils puissent être inscrits dans vos journaux. Voir la section 3.</p>
+      <p><strong>Renseignements sur l’équipage.</strong> Si vous enregistrez des membres d’équipage dans l’application, nous conservons le nom complet et le NIP du pêcheur que vous saisissez pour chacun. Ces renseignements servent uniquement à remplir vos journaux. Si vous activez la sauvegarde infonuagique, ils sont sauvegardés sur nos serveurs avec le reste de vos données de journal. <strong>Les noms et les NIP des membres d’équipage ne sont jamais transmis au MPO — seul le nombre de membres d’équipage à bord est déclaré.</strong></p>
+      <p><strong>Données de localisation.</strong> LobsterLog utilise la localisation de votre appareil uniquement pour les fonctions que vous choisissez d’utiliser.</p>
+      <ul>
+        <li><strong>Lieu de pêche et météo</strong> — vous définissez un point, soit en saisissant les coordonnées, soit en utilisant votre position GPS actuelle. Vos renseignements de météo et de marée sont générés pour ce point.</li>
+        <li><strong>Carte et épingles de casiers (Pro)</strong> — vous déposez une épingle à l’emplacement de chaque filière. Lorsque vous levez vos casiers, vous consignez les prises de cette filière. L’application enregistre dans votre journal des filières le numéro de filière, la date et l’heure de la levée, le nombre de homards, le temps de trempage, l’appât et l’emplacement de l’épingle, et utilise vos levées pour créer votre carte thermique. Pour les membres Pro, ces données sont conservées sur votre téléphone et sauvegardées automatiquement dans votre compte, sur des serveurs situés au <strong>Canada</strong>, afin que vous ne les perdiez pas si votre téléphone est perdu ou endommagé. <strong>Elles ne sont jamais transmises au MPO, jamais vendues et jamais communiquées à qui que ce soit.</strong></li>
+        <li><strong>Journaux de bord électroniques du MPO</strong> — lorsqu’une zone de pêche ou un rapport exige une position, vous la relevez avec le bouton <strong>Capturer GPS</strong> ou vous saisissez les coordonnées vous-même. <strong>Ces coordonnées font partie du journal que vous transmettez au MPO, comme l’exige la norme sur les journaux de bord électroniques.</strong></li>
+      </ul>
+      <p>Lorsque la carte est ouverte, elle affiche votre position actuelle afin que vous voyiez où vous êtes et puissiez déposer des épingles à l’emplacement de vos filières. <strong>LobsterLog n’enregistre pas le trajet que vous parcourez et n’utilise pas la localisation en arrière-plan.</strong> L’application n’enregistre une position que lorsque vous déposez une épingle, définissez un lieu de pêche ou capturez une position GPS pour un journal du MPO.</p>
+      <p><strong>Nous ne vendons jamais vos données de localisation et nous ne les utilisons jamais à des fins publicitaires ou commerciales.</strong></p>
+      <p><strong>Données d’abonnement.</strong> Nous utilisons RevenueCat pour gérer les abonnements. RevenueCat peut recueillir un identifiant unique et anonyme de votre appareil afin de gérer l’état de votre abonnement. Aucune donnée personnelle de journal n’est communiquée à RevenueCat.</p>
+    </div>
+
+    <div class="prose-section">
+      <h2>2. Comment nous utilisons vos renseignements</h2>
+      <p><strong>Prestation du service.</strong> Pour fournir, maintenir et améliorer l’application LobsterLog.</p>
+      <p><strong>Synchronisation des données.</strong> Nous conservons vos données dans le nuage (au moyen de Google Firebase, sur des serveurs situés au Canada) afin que vous ne perdiez pas votre historique de captures si votre appareil est perdu ou endommagé.</p>
+      <p><strong>Traitement des paiements.</strong> Les abonnements et les achats intégrés sont traités par l’<strong>App Store d’Apple</strong> ou <strong>Google Play</strong>, selon l’endroit où vous avez téléchargé l’application. LobsterLog ne voit ni ne conserve jamais vos renseignements de carte de crédit ou financiers.</p>
+    </div>
+
+    <div class="prose-section">
+      <h2>3. Journaux de bord électroniques du ministère des Pêches et des Océans (MPO)</h2>
+      <p>La présente section s’applique <strong>uniquement si vous activez et utilisez la fonction de journal de bord électronique du MPO.</strong> Si vous utilisez LobsterLog comme journal de pêche général, ou pour la météo et les cartes, rien de ce qui suit ne s’applique à vous et rien n’est transmis au MPO.</p>
+      <p><strong>Ce qui est transmis.</strong> Lorsque vous soumettez un journal ou un rapport, l’application l’envoie directement au MPO. Selon le formulaire et votre zone de pêche, cela comprend votre numéro de permis de pêche, votre NIP de détenteur de permis, votre numéro d’enregistrement du bateau (NEB), le nom de l’opérateur, le nombre de membres d’équipage à bord, vos renseignements d’effort de pêche et de captures, les renseignements sur l’appât et les prises accessoires, les détails de débarquement et — lorsque la zone de pêche ou le rapport l’exige — les coordonnées de position. <strong>Les noms des membres d’équipage ne sont jamais transmis; seul le nombre de membres d’équipage à bord est déclaré.</strong></p>
+      <p><strong>Pourquoi.</strong> Ces soumissions sont exigées par le MPO comme condition de votre permis. LobsterLog les transmet en votre nom; nous ne décidons pas de ce qui est exigé.</p>
+      <p><strong>Dossiers conservés sur votre appareil.</strong> L’application conserve une copie de chaque journal que vous envoyez, ainsi qu’un registre de chaque transmission — réussie ou échouée — comprenant le nom du fichier, la date et l’heure, et la réponse retournée par le MPO. La norme sur les journaux de bord électroniques exige que ces dossiers soient conservés pendant <strong>trois ans</strong>, et ils peuvent être examinés par un agent des pêches. Si vous supprimez votre compte, l’application vous remet une copie de ces dossiers avant de les supprimer — voir la section 5.</p>
+      <p><strong>Ce que nous ne pouvons pas annuler.</strong> Une fois qu’un journal a été transmis, il est détenu par le MPO selon ses propres règles de confidentialité et de conservation, et non les nôtres. <strong>La suppression de votre compte LobsterLog n’enlève pas et ne peut pas enlever les données déjà soumises au MPO.</strong> Le traitement de ces renseignements est régi par la Loi sur la protection des renseignements personnels fédérale.</p>
+    </div>
+
+    <div class="prose-section">
+      <h2>4. Services tiers</h2>
+      <ul>
+        <li><strong>Google Firebase</strong> — authentification et base de données. Vos données sont conservées sur des serveurs situés au <strong>Canada</strong>.</li>
+        <li><strong>RevenueCat</strong> — valide les abonnements. Il ne reçoit qu’un identifiant d’appareil anonyme. <strong>Aucune donnée de journal n’est communiquée à RevenueCat.</strong></li>
+        <li><strong>Stormglass</strong> — fournit la météo, les marées et l’état de la mer. <strong>Pour ce faire, les coordonnées de votre lieu de pêche sont transmises à Stormglass.</strong> Aucun autre renseignement vous concernant n’est envoyé, et Stormglass ne reçoit ni votre nom, ni votre compte, ni vos données de captures.</li>
+        <li><strong>Mapbox</strong> — fournit la carte utilisée dans l’application. Pour ce faire, Mapbox reçoit votre position et la façon dont vous utilisez la carte.</li>
+        <li><strong>Garmin</strong> — fournit les cartes des fonds marins dans Pro. Garmin reçoit un numéro de compte, le produit de cartes acheté et un numéro d’achat. Garmin ne reçoit ni votre nom ni votre courriel. Les cartes téléchargées sont effacées de votre appareil à la fin de votre abonnement Pro.</li>
+      </ul>
+      <p>À l’exception des services énumérés ci-dessus et de la transmission au MPO décrite à la section 3, nous ne vendons, ne louons ni ne communiquons vos renseignements à qui que ce soit.</p>
+    </div>
+
+    <div class="prose-section">
+      <h2>5. Conservation et suppression des données</h2>
+      <p><strong>Conservation.</strong> Nous conservons vos renseignements tant que votre compte est actif.</p>
+      <p><strong>Suppression de votre compte.</strong> Vous avez le droit de supprimer votre compte à tout moment à partir de <strong>Paramètres › Supprimer le compte</strong>. Cette action est permanente et irréversible. Elle supprime tout ce qui est détenu dans votre compte sur nos serveurs — votre adresse courriel, vos entrées de journal, votre historique de captures, vos épingles de carte et votre liste d’équipage enregistrée. <strong>Nous n’en conservons aucune copie.</strong></p>
+      <p><strong>Avant toute suppression, l’application vous enregistre une copie de votre registre de transmission</strong> — les rapports que vous avez transmis, avec le numéro de confirmation du MPO pour chacun — dans un fichier texte, dans le dossier Documents de LobsterLog sur votre téléphone. Le nom du fichier vous est indiqué. Conservez ce fichier en lieu sûr: la norme sur les journaux de bord électroniques exige que vous conserviez ces dossiers pendant trois ans, et un agent des pêches peut demander à les consulter. Une fois la suppression effectuée, l’application ne les conserve plus.</p>
+      <p><strong>Ce que la suppression ne peut pas atteindre.</strong></p>
+      <ul>
+        <li><strong>Tout ce qui a déjà été soumis au MPO.</strong> Une fois qu’un journal a été transmis, il appartient aux dossiers du gouvernement et est régi par ses règles, non les nôtres. Nous n’avons aucun moyen de le retirer.</li>
+      </ul>
+    </div>
+
+    <div class="prose-section">
+      <h2>6. Conditions d’utilisation</h2>
+      <p>Si vous avez téléchargé LobsterLog depuis l’App Store d’Apple, votre utilisation est également assujettie au contrat de licence d’utilisateur final type d’Apple (Licensed Application End User License Agreement): <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
+      <p>Nos conditions d’utilisation, y compris les conditions des cartes Garmin (Pro), se trouvent à <a href="terms.html#fr">lobsterlog.ca/terms.html</a>.</p>
+    </div>
+
+    <div class="prose-section">
+      <h2>7. Nous joindre</h2>
+      <p>Questions concernant la présente politique de confidentialité:</p>
+      <p><strong>LobsterLog Software</strong><br>300 Highway 330, Northeast Point, Nouvelle-Écosse, Canada<br>CP 661 · B0W 2P0<br><a href="mailto:support@lobsterlog.com">support@lobsterlog.com</a> · 1 (902) 635-1069</p>
     </div>
 
   </div>
@@ -478,11 +562,12 @@
     <span class="footer-logo"><span>Lobster</span>Log</span>
     <ul class="footer-links">
       <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
       <li><a href="https://apps.apple.com/ca/app/lobster-log/id6757337342">App Store</a></li>
       <li><a href="https://play.google.com/store/apps/details?id=com.lobsterlog&pcampaignid=web_share">Google Play</a></li>
-      <li><a href="mailto:lobsterlog.app@gmail.com">Contact</a></li>
+      <li><a href="mailto:support@lobsterlog.com">Contact</a></li>
     </ul>
-    <p class="footer-copy">© 2025 LobsterLog. Built in Cape Sable Island, Nova Scotia. All rights reserved.</p>
+    <p class="footer-copy">© 2026 LobsterLog. Built in Cape Sable Island, Nova Scotia. All rights reserved.</p>
   </div>
 </footer>
 

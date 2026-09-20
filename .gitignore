@@ -1,0 +1,4 @@
+# Editor and OS clutter. Everything in this repo is published to lobsterlog.ca,
+# so nothing that is not part of the site belongs here.
+.idea/
+.DS_Store

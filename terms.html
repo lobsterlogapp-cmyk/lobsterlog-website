@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LobsterLog Terms of Use — including the Garmin Charts (Pro) terms. English and French.">
+<title>Terms of Use — LobsterLog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #2A9D8F;
+    --teal-dark: #1e7a6e;
+    --teal-deeper: #155f56;
+    --navy: #1E3A8A;
+    --navy-dark: #152c6b;
+    --navy-deeper: #0d1f4a;
+    --white: #ffffff;
+    --off-white: #f4f1eb;
+    --warm-gray: #e8e4da;
+    --text-dark: #0f1923;
+    --text-mid: #3a4a5c;
+    --text-muted: #6b7a8d;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background: var(--off-white);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(30, 58, 138, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0 1.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(42, 157, 143, 0.3);
+  }
+
+  /* NAV DROPDOWN */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .nav-logo-text { color: var(--white); }
+  .nav-logo-text span { color: var(--teal); }
+
+  .nav-dropdown-arrow {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: rgba(255,255,255,0.6);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.2s ease, stroke 0.2s;
+    flex-shrink: 0;
+  }
+
+  .nav-dropdown.open .nav-dropdown-arrow {
+    transform: rotate(180deg);
+    stroke: var(--teal);
+  }
+
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background: var(--navy-deeper);
+    border: 1px solid rgba(42,157,143,0.35);
+    border-radius: 10px;
+    list-style: none;
+    min-width: 200px;
+    z-index: 200;
+    padding: 0.5rem 0;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+
+  .nav-dropdown.open .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 0.65rem 1.25rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-dropdown-menu a:hover,
+  .nav-dropdown-menu a:focus {
+    color: var(--teal);
+    background: rgba(42,157,143,0.1);
+    outline: none;
+  }
+
+  .nav-dropdown-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 0.4rem 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+  }
+
+  /* PAGE CONTENT */
+  .prose-page {
+    padding-top: 56px;
+  }
+
+  .prose-header {
+    background: var(--navy-deeper);
+    padding: 4rem 1.5rem 3.5rem;
+    text-align: left;
+  }
+
+  .prose-header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .prose-eyebrow {
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.85rem;
+    display: block;
+  }
+
+  .prose-header h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .prose-header .last-updated {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+  }
+
+  .prose-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+
+  .prose-section {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--warm-gray);
+  }
+
+  .prose-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .prose-section h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--navy-dark);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .prose-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1.2em;
+    background: var(--teal);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .prose-section dl {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .prose-section dt {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.4;
+  }
+
+  .prose-section dd {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.75;
+    margin-left: 0;
+  }
+
+  .prose-section p {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+
+  /* The global reset zeroes padding on everything, which would push list bullets off
+     the left edge. This page is the first on the site to use a bulleted list, so the
+     rule lives here rather than in the shared prose styles. */
+  .prose-section ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-section li {
+    font-size: 0.97rem;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 0.6rem;
+  }
+
+  .prose-section p:last-child { margin-bottom: 0; }
+
+  .prose-section a {
+    color: var(--teal-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+    transition: color 0.2s;
+  }
+
+  .prose-section a:hover { color: var(--navy-dark); }
+
+  .prose-intro {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-intro p {
+    font-size: 1rem;
+    color: var(--text-mid);
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deeper);
+    color: rgba(255,255,255,0.5);
+    padding: 2.5rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--teal); }
+
+  .footer-copy {
+    width: 100%;
+    font-size: 0.78rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-dropdown" id="navDropdown">
+    <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+      <span class="nav-logo-text"><span>Lobster</span>Log</span>
+      <svg class="nav-dropdown-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <ul class="nav-dropdown-menu">
+      <li><a href="events.html">Events</a></li>
+      <li><a href="videos.html">Videos</a></li>
+      <li><a href="pro.html">Pro</a></li>
+      <li><a href="dfo.html">DFO</a></li>
+      <li class="nav-dropdown-divider" role="separator"></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+    </ul>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Features</a></li>
+    <li><a href="index.html#story">Story</a></li>
+    <li><a href="index.html#dfo">DFO</a></li>
+    <li><a href="index.html#download">Download</a></li>
+  </ul>
+</nav>
+
+<div class="prose-page">
+
+  <!-- HEADER -->
+  <div class="prose-header">
+    <div class="prose-header-inner">
+      <span class="prose-eyebrow">Legal</span>
+      <h1>Terms of Use</h1>
+      <p class="last-updated">Last Updated: September 20, 2026</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="prose-body">
+
+    <div class="prose-section prose-intro">
+      <p>These Terms of Use apply to the LobsterLog mobile application. They sit alongside our <a href="privacy.html">Privacy Policy</a> and, if you downloaded LobsterLog from the Apple App Store, Apple’s standard Licensed Application End User License Agreement (EULA).</p>
+      <p style="margin-top:1rem;"><strong>La version française suit.</strong> <a href="#fr">Aller à la version française</a></p>
+    </div>
+
+    <div class="prose-section">
+      <h2>1. Garmin Charts (Pro)</h2>
+      <ul>
+        <li>Garmin charts are only available to members with an active Pro subscription.</li>
+        <li>To keep using the charts, you must keep your Pro subscription active.</li>
+        <li>When your Pro subscription ends, downloaded charts are erased from your device.</li>
+        <li>The charts are for your personal use. They are licensed, not sold. You may not copy, share, change or take data from the charts, or use them outside LobsterLog.</li>
+        <li>Your use of the charts also depends on following Garmin's <a href="https://www.garmin.com/en-US/legal/terms-of-use/" target="_blank" rel="noopener">Terms of Use</a> and <a href="https://www.garmin.com/en-US/legal/shopterms/" target="_blank" rel="noopener">Terms and Conditions</a>.</li>
+        <li>The charts are for information only and do not replace official government charts.</li>
+      </ul>
+    </div>
+
+    <div class="prose-section">
+      <h2>2. Apple End User License Agreement</h2>
+      <p>If you downloaded LobsterLog from the Apple App Store, your use is also subject to Apple’s standard Licensed Application End User License Agreement: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
+    </div>
+
+    <div class="prose-section">
+      <h2>3. Contact Us</h2>
+      <p><strong>LobsterLog Software</strong><br>
+        300 Highway 330, Northeast Point, Nova Scotia, Canada<br>
+        PO Box 661 · B0W 2P0<br>
+        <a href="mailto:support@lobsterlog.com">support@lobsterlog.com</a> · 1 (902) 635-1069</p>
+    </div>
+
+    <div class="prose-section" id="fr">
+      <h2>Conditions d'utilisation (Français)</h2>
+      <p>Les présentes conditions d’utilisation s’appliquent à l’application mobile LobsterLog. Elles s’ajoutent à notre <a href="privacy.html">politique de confidentialité</a> et, si vous avez téléchargé LobsterLog depuis l’App Store d’Apple, au contrat de licence d’utilisateur final type d’Apple (CLUF).</p>
+    </div>
+
+    <div class="prose-section">
+      <h2>1. Cartes Garmin (Pro)</h2>
+      <ul>
+        <li>Les cartes Garmin sont offertes seulement aux membres ayant un abonnement Pro actif.</li>
+        <li>Pour continuer à utiliser les cartes, vous devez garder votre abonnement Pro actif.</li>
+        <li>À la fin de votre abonnement Pro, les cartes téléchargées sont effacées de votre appareil.</li>
+        <li>Les cartes sont pour votre usage personnel. Elles sont concédées sous licence, et non vendues. Vous ne pouvez pas copier, partager ou modifier les cartes, en extraire des données, ni les utiliser en dehors de LobsterLog.</li>
+        <li>Votre utilisation des cartes dépend aussi du respect des <a href="https://www.garmin.com/en-US/legal/terms-of-use/" target="_blank" rel="noopener">Conditions d'utilisation</a> et des <a href="https://www.garmin.com/en-US/legal/shopterms/" target="_blank" rel="noopener">Conditions générales</a> de Garmin.<br>
+          <em style="color:#6b7a8d;">Remarque temporaire&nbsp;: les deux liens ci-dessus mènent aux versions anglaises. Garmin n'a pas encore fourni les adresses françaises; elles seront remplacées dès leur réception.</em></li>
+        <li>Les cartes sont fournies à titre d'information seulement et ne remplacent pas les cartes marines officielles du gouvernement.</li>
+      </ul>
+    </div>
+
+    <div class="prose-section">
+      <h2>2. Contrat de licence d'utilisateur final d'Apple</h2>
+      <p>Si vous avez téléchargé LobsterLog depuis l’App Store d’Apple, votre utilisation est également assujettie au contrat de licence d’utilisateur final type d’Apple&nbsp;: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
+    </div>
+
+    <div class="prose-section">
+      <h2>3. Nous joindre</h2>
+      <p><strong>LobsterLog Software</strong><br>
+        300 Highway 330, Northeast Point, Nouvelle-Écosse, Canada<br>
+        CP 661 · B0W 2P0<br>
+        <a href="mailto:support@lobsterlog.com">support@lobsterlog.com</a> · 1 (902) 635-1069</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo"><span>Lobster</span>Log</span>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Use</a></li>
+      <li><a href="https://apps.apple.com/ca/app/lobster-log/id6757337342">App Store</a></li>
+      <li><a href="https://play.google.com/store/apps/details?id=com.lobsterlog&pcampaignid=web_share">Google Play</a></li>
+      <li><a href="mailto:support@lobsterlog.com">Contact</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 LobsterLog. Built in Cape Sable Island, Nova Scotia. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var trigger = document.querySelector('.nav-dropdown-trigger');
+    var dropdown = document.querySelector('.nav-dropdown');
+    if (!trigger || !dropdown) return;
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = dropdown.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function() {
+      if (dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
