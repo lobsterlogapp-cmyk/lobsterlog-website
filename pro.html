@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LobsterLog Pro — advanced analytics, export tools, and everything a serious harvester needs. Coming soon.">
+<meta name="description" content="LobsterLog Pro — HD depth charts from Garmin®, Seafloor 3D, offline charts, marine weather and tides for lobster harvesters.">
 <title>Pro — LobsterLog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -304,6 +304,36 @@
     padding-top: 1rem;
     border-top: 1px solid rgba(255,255,255,0.08);
   }
+  /* PRO PAGE (S201) */
+  .pro-page { flex: 1; padding-top: 56px; }
+  .pro-wrap { max-width: 980px; margin: 0 auto; padding: 4rem 1.5rem 3rem; }
+  .pro-hero { text-align: center; max-width: 640px; margin: 0 auto 3.5rem; }
+  .pro-label { font-weight: 600; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+  .pro-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 6vw, 3.4rem); color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; }
+  .pro-lead { font-size: 1.1rem; color: rgba(255,255,255,0.7); font-weight: 300; line-height: 1.75; }
+  .pro-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; margin-bottom: 4rem; }
+  .pro-feature.flip .pro-shot { order: 2; }
+  .pro-feature h2 { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
+  .pro-feature p { color: rgba(255,255,255,0.7); font-size: 1.02rem; line-height: 1.75; }
+  .pro-feature .pro-note { margin-top: 0.75rem; font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+  .pro-feature .pro-note a { color: var(--teal); }
+  .pro-shot { display: flex; justify-content: center; }
+  .pro-shot img { width: 100%; max-width: 300px; border-radius: 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.08); }
+  .pro-shot .placeholder { width: 100%; max-width: 300px; aspect-ratio: 9 / 19.5; border-radius: 28px; border: 2px dashed rgba(42,157,143,0.5); display: flex; align-items: center; justify-content: center; text-align: center; padding: 1.5rem; color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+  .pro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 3.5rem; }
+  .pro-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; }
+  .pro-card h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .pro-card p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.6; }
+  .pro-cta { text-align: center; padding: 2.5rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .pro-cta p { color: rgba(255,255,255,0.65); margin-bottom: 1.5rem; }
+  .pro-cta .btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .pro-fine { margin-top: 1.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+  .pro-fine a { color: rgba(255,255,255,0.55); }
+  @media (max-width: 760px) {
+    .pro-feature { grid-template-columns: 1fr; gap: 1.5rem; }
+    .pro-feature.flip .pro-shot { order: 0; }
+    .pro-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -333,21 +363,72 @@
   </ul>
 </nav>
 
-<!-- CONSTRUCTION -->
-<main class="construction-page">
-  <div class="construction-inner">
-    <div class="construction-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-      </svg>
+<!-- PRO (S201) -->
+<main class="pro-page">
+  <div class="pro-wrap">
+
+    <div class="pro-hero">
+      <p class="pro-label">LobsterLog Pro</p>
+      <h1 class="pro-title">See the bottom before you set.</h1>
+      <p class="pro-lead">Depth charts, a 3D view of the sea floor, and the weather and tides for your grounds — all on the map you already use, and all working offshore with no signal.</p>
     </div>
-    <p class="construction-label">Coming Soon</p>
-    <h1 class="construction-title">Pro</h1>
-    <p class="construction-message">Advanced analytics, season summaries, data export, and everything a serious harvester needs to run a tighter operation. Details coming soon.</p>
-    <a href="index.html" class="btn-home">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-      Back to Home
-    </a>
+
+    <section class="pro-feature">
+      <div class="pro-shot">
+        <img src="pro-garmin.jpg" alt="The LobsterLog Pro map with HD depth charts from Garmin® over satellite imagery" loading="lazy">
+      </div>
+      <div>
+        <h2>HD depth charts from Garmin®</h2>
+        <p>Garmin’s detailed depth lines, right on your LobsterLog map. Plan your sets from the kitchen table or the truck at the wharf — no boat running, no plotter needed.</p>
+        <p class="pro-note">HD depth charts from Garmin® cover the US and Canada.</p>
+      </div>
+    </section>
+
+    <section class="pro-feature flip">
+      <div class="pro-shot">
+        <img src="pro-seafloor3d.jpg" alt="Seafloor 3D: a colour depth map of the bottom with HD depth charts from Garmin® on top" loading="lazy">
+      </div>
+      <div>
+        <h2>Seafloor 3D</h2>
+        <p>A colour depth map of the bottom across all of Atlantic Canada, LFA 1 to 41, built by LobsterLog from Canadian Hydrographic Service data. Shoals, ledges and channels at a glance.</p>
+        <p class="pro-note">For information only — not for navigation. <a href="terms.html#chs">CHS notice</a></p>
+      </div>
+    </section>
+
+    <section class="pro-feature">
+      <div class="pro-shot">
+        <img src="pro-download.jpg" alt="Choosing an area to download charts for use with no signal" loading="lazy">
+      </div>
+      <div>
+        <h2>Works with no signal</h2>
+        <p>Draw a box around your grounds and download it at the wharf. Your charts open offshore, even if the app starts with no service.</p>
+      </div>
+    </section>
+
+    <div class="pro-grid">
+      <div class="pro-card">
+        <h3>Marine weather</h3>
+        <p>Live conditions and wind forecasts for the spots you fish.</p>
+      </div>
+      <div class="pro-card">
+        <h3>Tides</h3>
+        <p>Tide tables from the Canadian Hydrographic Service, right beside your map.</p>
+      </div>
+      <div class="pro-card">
+        <h3>Bait analytics</h3>
+        <p>See what’s working, season over season.</p>
+      </div>
+    </div>
+
+    <div class="pro-cta">
+      <p>Download LobsterLog free, then upgrade to Pro inside the app. Monthly or yearly — cancel any time.</p>
+      <div class="btns">
+        <a class="btn-home" href="https://apps.apple.com/ca/app/lobster-log/id6757337342" target="_blank" rel="noopener">App Store</a>
+        <a class="btn-home" href="https://play.google.com/store/apps/details?id=com.lobsterlog&pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a>
+      </div>
+      <p class="pro-fine">Charts and Seafloor 3D are for information only and do not replace official charts. See our <a href="terms.html">Terms of Use</a>.</p>
+    </div>
+
   </div>
 </main>
 
